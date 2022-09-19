@@ -1,0 +1,14 @@
+- hosts: master 
+  become: yes
+  tasks:
+  - user:
+      name: bhushan
+      group: sudo
+      state: present
+      create_home: yes
+  - authorized_key:
+      user: bhushan
+      state: present
+      key: "{{ lookup('file', './bhushan.pub') }}"
+
+

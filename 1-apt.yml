@@ -1,0 +1,15 @@
+- name: 'install apache on this server'
+  hosts: all
+  become: yes
+  tasks:
+  - apt:
+      name: apache2
+      state: present
+    # - apt:
+    #     name: firewalld
+    #     state: present
+    #   when: ansible_os_family == "Debian"
+    # - yum:
+    #     name: httpd
+    #     state: present
+    #   when: ansible_os_family == "RedHat"

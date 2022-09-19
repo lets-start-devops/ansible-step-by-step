@@ -1,0 +1,4 @@
+ansible -m setup localhost > /tmp/ansible_facts.txt 
+ansible -m command -a "date" -i inventory worker-1
+ansible -m command -a "hostname" all
+ansible-playbook 1-apt.yml -i inventory --ask-become-pass

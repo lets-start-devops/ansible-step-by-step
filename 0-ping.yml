@@ -1,0 +1,15 @@
+- name: "shadi-dev"
+  hosts: web-servers
+  tasks:
+  - name: "to test connectivity from ansible to servers"
+    ping:
+      data: "Connection open"
+
+--- 
+ 
+- name: "shadi-dev"
+  hosts: web-servers
+    tasks:
+    - name: "to test connectivity from ansible to servers"
+      ping:
+        data: "Connection open"

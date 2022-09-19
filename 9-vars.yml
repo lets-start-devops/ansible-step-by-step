@@ -1,0 +1,13 @@
+- name: 'install apache on this server'
+  hosts: worker-1
+  become: yes
+  vars:
+    packages:
+    - apache2
+    - firewalld
+
+  tasks:
+    - apt:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages }}""

@@ -1,0 +1,25 @@
+worker-1 ansible_host=192.168.1.49 ansible_user=shiv 
+worker-2 ansible_host=192.168.1.50 ansible_user=shiv ansible_ssh_pass=Password
+master-1 ansible_host=192.168.1.48 ansible_user=shiv 
+
+
+[web-servers]
+worker-1
+master 
+
+[db]
+worker-2
+
+[us-servers:children]
+web-servers 
+db 
+
+
+
+[ubuntu:children]
+web-servers 
+
+[rhel:children]
+db 
+
+

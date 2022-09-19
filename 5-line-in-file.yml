@@ -1,0 +1,16 @@
+- hosts: worker-1
+  tasks:
+  - lineinfile: 
+      path: /var/www/html/index.html
+      create: yes
+      line: This line was added using Ansible lineinfile module!
+
+---
+
+- hosts: worker-1
+  become: yes
+  tasks:
+  - lineinfile:
+      line: Listen 8080
+      path: /etc/httpd/conf/httpd.conf
+      search_string: Listen 80
